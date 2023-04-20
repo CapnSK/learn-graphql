@@ -4,7 +4,8 @@
   "description": "A UI to access graphQL based backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create": "create-react-app"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
   "author": "Sankalp K",
   "license": "ISC",
   "dependencies": {
+    "create-react-app": "^5.0.1",
     "graphiql": "^2.4.1"
   }
 }
