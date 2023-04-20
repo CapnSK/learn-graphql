@@ -1,10 +1,9 @@
 {
-  "name": "server",
+  "name": "ui",
   "version": "1.0.0",
-  "description": "A server to execute queries and mutations in graphQL",
+  "description": "A UI to access graphQL based backend",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,11 +16,6 @@
   "author": "Sankalp K",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "express-graphql": "^0.12.0",
-    "graphql": "^16.6.0",
-    "lodash": "^4.17.21",
-    "mongoose": "^7.0.4",
-    "nodemon": "^2.0.22"
+    "graphiql": "^2.4.1"
   }
 }
