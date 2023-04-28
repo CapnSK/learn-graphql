@@ -1,5 +1,7 @@
 const express = require("express")
 const app = express();
+var cors = require('cors')
+
 const portNum = 8080;
 const {graphqlHTTP} = require("express-graphql");
 const schema = require("./schema/schema");
@@ -13,9 +15,11 @@ mongoose.connection.once("open", ()=>{
 
 
 console.log(graphqlHTTP)
+app.use(cors());
 app.listen(portNum, ()=>{
     console.log(`Server started on port ${portNum}`);
 });
+
 
 app.use("/graphql", graphqlHTTP({
     schema: schema,
