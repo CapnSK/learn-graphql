@@ -1,19 +1,7 @@
 import Book from './Book';
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { ALL_BOOKS } from '../utils/queries';
 
-const ALL_BOOKS = gql`
-{
-    author(id:"64409f0a63ef2cbd763b49a2"){
-      name,
-      age,
-      books{
-        id,
-        name,
-        genre
-      }
-    }
-  }
-`;
 
 function BookList(){
     const bookList = [{
