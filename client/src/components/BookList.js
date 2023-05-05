@@ -17,7 +17,7 @@ function BookList(){
             <div className="BookList">
                 {
                     (!loading && !error && data) ? 
-                    <ul id="book-list">
+                    <ul className="book-list">
                             {
                                 data.books.map(book=>{
                                     return (<Book key={book.id} {...book} onClickHandle={onBookClick}/>);
@@ -27,7 +27,7 @@ function BookList(){
                     <div>No books to show</div> 
                 }
             </div>
-            {bookSelected ? <BookDetails id={bookSelected}></BookDetails> : "No Book Selected"}
+            {<BookDetails id={bookSelected}></BookDetails>}
         </>
     );
 }

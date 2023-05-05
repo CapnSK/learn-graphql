@@ -7,23 +7,24 @@ export default function BookDetails({id}){
     });
     return (
         <>
+            <div className="book-details">
             { 
-                (data && !loading && !error) ?
-                    <>
-                        <h2>{data.book.name}</h2>
-                        <p>{data.book.genre}</p>
-                        <p>{data.book.author.name}</p>
-                        <ul className="author-all-books">
-                            {
-                                data.book.author.books?.map(book=>{
-                                        return book.id !== id ? (<li key={book.id} className="book">{book.name}</li>) : "";
-                                    })
-                            }
-                        </ul>
-                    </>
-                : ""
+                (id && data && !loading && !error) ?
+                        <>
+                            <h2>{data.book.name}</h2>
+                            <p>{data.book.genre}</p>
+                            <p>{data.book.author.name}</p>
+                            <ul className="author-all-books">
+                                {
+                                    data.book.author.books?.map(book=>{
+                                            return book.id !== id ? (<li key={book.id} className="book">{book.name}</li>) : "";
+                                        })
+                                }
+                            </ul>
+                        </>
+                : loading ? "Loading..." : "Nothing to show yet..."
             }
-
+            </div>
         </>
     );
 }

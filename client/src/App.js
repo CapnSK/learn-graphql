@@ -7,6 +7,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
+        <h1>Good Reads to checkout</h1>
         <BookList/>
         <AddBook/>
       </div>
