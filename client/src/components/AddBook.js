@@ -20,7 +20,7 @@ function AddBook(){
                         <option value="none">Select Author</option>
                         {data && !loading && !error ?
                             data.authors.map(author=>{
-                                return <option key={author.id} value={`${author.name}`}>{author.name}</option>;
+                                return <option key={author.id} value={`${author.id}`}>{author.name}</option>;
                             })
                             : ""
                         }
