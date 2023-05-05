@@ -28,11 +28,13 @@ function AddBook(){
 
     const addNewBook = async (e) => {
         e.preventDefault();
-        const returnData = await addBookMutation({variables: {...bookToAdd}, refetchQueries: [GET_ALL_BOOKS], awaitRefetchQueries: true});
-        const { id, name } = returnData.data.addBook;
-        console.log("Id of newly created book is", id);
-        console.log("name of newly created book is", name);
-        alert(`Book added successfully  \nid: ${id} \nname: ${name}`);
+        if(bookToAdd?.name && bookToAdd?.authorId){
+            const returnData = await addBookMutation({variables: {...bookToAdd}, refetchQueries: [GET_ALL_BOOKS], awaitRefetchQueries: true});
+            const { id, name } = returnData.data.addBook;
+            console.log("Id of newly created book is", id);
+            console.log("name of newly created book is", name);
+            alert(`Book added successfully  \nid: ${id} \nname: ${name}`);
+        }
     }
 
     return (

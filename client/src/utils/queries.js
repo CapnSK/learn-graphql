@@ -11,10 +11,27 @@ export const POST_BOOK = gql`
 
 `;
 
+export const GET_BOOK_BY_ID = gql`
+    query ($id: ID!){
+        book(id: $id){
+            name,
+            genre,
+            author{
+                id,
+                name,
+                books {
+                    id,
+                    name
+                }
+            }
+        }
+    }
+`;
 
-export const GET_AUTHOR_BY_ID = (id)=>gql`
-{
-    author(id:"${id}"){
+
+export const GET_AUTHOR_BY_ID = gql`
+query($id: ID!){
+    author(id:$id){
       name,
       age,
       books{
