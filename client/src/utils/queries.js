@@ -1,6 +1,18 @@
 import { gql } from "@apollo/client";
 
-export const GET_AUTHOR_BYID = (id)=>gql`
+
+export const POST_BOOK = gql`
+    mutation ($name: String!, $genre: String!, $authorId: ID!){
+        addBook(name: $name, genre: $genre, authorId: $authorId){
+            id,
+            name
+        }
+    }
+
+`;
+
+
+export const GET_AUTHOR_BY_ID = (id)=>gql`
 {
     author(id:"${id}"){
       name,
