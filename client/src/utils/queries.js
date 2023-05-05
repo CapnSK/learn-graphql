@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const ALL_BOOKS = gql`
+export const GET_AUTHOR_BYID = (id)=>gql`
 {
-    author(id:"64409f0a63ef2cbd763b49a2"){
+    author(id:"${id}"){
       name,
       age,
       books{
@@ -11,5 +11,30 @@ export const ALL_BOOKS = gql`
         genre
       }
     }
-  }
+}
 `;
+
+export const GET_ALL_BOOKS = gql`
+{
+    books{
+        name,
+        id,
+        author{
+            name
+        }
+    }
+}
+`;
+
+export const GET_ALL_AUTHORS = gql`
+{
+    authors{
+        name,
+        id,
+        books{
+            name
+            genre
+        }
+    }
+}
+`

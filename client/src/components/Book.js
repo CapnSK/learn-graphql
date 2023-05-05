@@ -1,9 +1,10 @@
 import { ApolloClient, ApolloLink, InMemoryCache } from "@apollo/client";
 
-function Book() {
+function Book({id, name, author}) {
+    console.log("props: ", id, name, author);
     return (
       <div className="Book">
-        Hello Book
+        Book: {name}
       </div>
     );
   }
