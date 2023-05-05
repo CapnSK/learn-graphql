@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GET_ALL_AUTHORS, POST_BOOK } from "../utils/queries";
+import { GET_ALL_AUTHORS, POST_BOOK, GET_ALL_BOOKS } from "../utils/queries";
 import { useQuery, useMutation } from "@apollo/client";
 
 function AddBook(){
@@ -28,7 +28,7 @@ function AddBook(){
 
     const addNewBook = async (e) => {
         e.preventDefault();
-        const returnData = await addBookMutation({variables: {...bookToAdd}});
+        const returnData = await addBookMutation({variables: {...bookToAdd}, refetchQueries: [GET_ALL_BOOKS], awaitRefetchQueries: true});
         const { id, name } = returnData.data.addBook;
         console.log("Id of newly created book is", id);
         console.log("name of newly created book is", name);
